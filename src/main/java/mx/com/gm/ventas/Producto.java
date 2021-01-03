@@ -2,16 +2,17 @@ package mx.com.gm.ventas;
 
 public class Producto {
 
-	private int idProducto;
+	private final int idProducto;
 	private String nombre;
 	private double precio;
 	private static int contadorProductos;
 	
 	public Producto(){
-		contadorProductos +=1;
+		 this.idProducto = ++Producto.contadorProductos;
 	}
 	
 	public Producto(String nombre, double precio) {
+		this();
 		this.nombre = nombre;
 		this.precio = precio;
 	}
@@ -20,10 +21,7 @@ public class Producto {
 	{
 		return this.idProducto;
 	}
-	public void setidProducto(int idProducto) {
-		this.idProducto = idProducto;
-		
-	}
+	
 	
 	public String getNombre() {
 		return this.nombre;
@@ -40,5 +38,13 @@ public class Producto {
 	
 	this.precio = precio;
 	}
+	
+	@Override
+	public String toString() {
+	
+		return "Producto {"+"idProducto ="+this.idProducto+" Nombre = "+this.nombre+" Precio= "+this.precio+"}";
+		
+	}
+
 	
 }
